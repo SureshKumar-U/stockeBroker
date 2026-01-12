@@ -6,3 +6,5 @@ const router = Router()
 router.get("/watchlists", watchListController.getAll)
 router.post("/watchlists", watchListController.create)
 router.post("/watchlists/stocks",watchListController.addStock)
+
+export default router
