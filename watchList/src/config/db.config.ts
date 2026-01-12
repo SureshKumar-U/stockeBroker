@@ -1,6 +1,8 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm"
 import dotenv from 'dotenv';
+import { WatchList } from "../models/watchlist.model";
+import { WatchListItems } from "../models/watchlistitems.model";
 dotenv.config();
 
 export const AppDataSource = new DataSource({
@@ -12,7 +14,7 @@ export const AppDataSource = new DataSource({
     database: process.env.DBNAME,
     synchronize: true,
     logging: true,
-    entities: [],
+    entities: [WatchList,WatchListItems],
     subscribers: [],
     migrations: [],
 })

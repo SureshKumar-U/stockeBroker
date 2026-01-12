@@ -1,13 +1,28 @@
-const watchListController= {
+import { Request, Response } from "express"
 
-    create:()=>{
+import watchListService from "../services/watchlist.service"
+const watchListController = {
+
+    create: async (_req: Request, res: Response) => {
+        await watchListService.create()
+        return res.status(200).json({
+            message: "watchList created successfully"
+        })
 
     },
-    getAll:()=>{
+    getAll: async (_req: Request, res: Response) => {
 
+        await watchListService.getAll()
+        return res.status(200).json({
+            message: "getAll watchList fetched successfully"
+        })
     },
-    addStock:()=>{
+    addStock: async (_req: Request, res: Response) => {
 
+        await watchListService.addStock()
+        return res.status(200).json({
+            messag: "addStcok to watchList successfully"
+        })
     }
 
 }
