@@ -9,6 +9,7 @@ AppDataSource.initialize().then(() => {
 }).catch((err) => {
     console.error("Error during Data Source initialization:", err);
 });
+app.use(express.json());
 
 app.use("/api", router)
 

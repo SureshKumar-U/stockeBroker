@@ -1,17 +1,17 @@
 import watchListRepository from "../Repositories/watchlist.repository"
+import { AddStockToWatchList, CreatWatchList } from "../types/watchList.types"
 
 const watchListService = {
     getAll:async()=>{
-        watchListRepository.getAll()
+       return watchListRepository.getAll()
 
     },
-    create:async()=>{
-        watchListRepository.create() 
+    create:async(WatchList:CreatWatchList)=>{
+     return await watchListRepository.create(WatchList) 
 
     },
-    addStock:async()=>{
-        watchListRepository.addStock()
-
+    addStock:async(addStock:AddStockToWatchList)=>{
+        return await watchListRepository.addStock(addStock)
     }
 }
 
