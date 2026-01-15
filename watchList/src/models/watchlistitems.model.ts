@@ -2,21 +2,22 @@ import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColu
 import { WatchList } from "./watchlist.model";
 
 @Entity()
-export class WatchListItems extends BaseEntity{
-    @PrimaryGeneratedColumn()
-    id!:number;
+export class WatchListItems extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    symbol:string;
+  @Column()
+  symbol: string;
 
-    @Column()
-    exchange:string
+  @Column()
+  exchange: string
 
+  @Column()
+  watchListId: number
   // Relation: Many items belong to one watchlist
-  @ManyToOne(() => WatchList, watchlist => watchlist.items, {
-    onDelete: 'CASCADE',
-  })
-  @JoinColumn({ name: 'watchlist_id' })
+
+  @ManyToOne(() => WatchList)
+  @JoinColumn({ name: "watchListId", referencedColumnName: "id" })
   watchlist: WatchList;
 
 }

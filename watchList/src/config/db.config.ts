@@ -13,7 +13,7 @@ export const AppDataSource = new DataSource({
     password: process.env.DBPASSWORD,
     database: process.env.DBNAME,
     synchronize: true,
-    logging: true,
+    logging: false,
     entities: [WatchList,WatchListItems],
     subscribers: [],
     migrations: [],

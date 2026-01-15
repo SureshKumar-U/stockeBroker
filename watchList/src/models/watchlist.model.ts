@@ -6,7 +6,7 @@ import { WatchListItems } from "./watchlistitems.model";
 @Entity()
 export class WatchList extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id!: number;
+    id: number;
 
     @Column()
     name: string;
