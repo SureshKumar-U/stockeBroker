@@ -2,9 +2,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "esModuleInterop": true,
-    "rootDir": "src",
+    "rootDir": ".",
     "module": "commonjs",
-    "target": "es2016",
+    "target": "es2021",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   }
