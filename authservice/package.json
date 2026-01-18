@@ -1,25 +1,25 @@
 {
-  "name": "ordermanagerservice",
+  "name": "authservice",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.ts",
-    "build": "tsc",
-    "serve": "node dist/index.js",
+    "dev": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
+    "@types/express": "^5.0.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.4",
+    "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/express": "^5.0.6",
-    "@types/node": "^25.0.9",
-    "prisma": "^7.2.0"
-  },
-  "description": ""
+    "@types/jsonwebtoken": "^9.0.10"
+  }
 }
