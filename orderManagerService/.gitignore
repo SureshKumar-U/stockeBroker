@@ -1,0 +1,12 @@
+# node_modules# Dependency directories
+node_modules/
+
+# Output directories
+dist/
+build/
+out/
+
+# Environment variables
+.env*
+
+/src/generated/prisma
