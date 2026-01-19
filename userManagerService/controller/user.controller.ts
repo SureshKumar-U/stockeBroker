@@ -1,27 +1,44 @@
 import { Request, Response } from "express";
 import userService from "../services/user.service";
 
-export const getUserProfile = async(req:Request,res:Response)=>{
-
+export const getUserProfile = async (req: Request, res: Response) => {
     //get accesstoken from db
-    try{
+    try {
         const email = req.query.email
-        if(!email){
-            return res.status(401).json({message:"email is required"})
+        if (!email) {
+            return res.status(401).json({ message: "email is required" })
         }
-        let response:any = await fetch(`http://localhost:9000/api/accesstoken?email=${email}`)
+        let response: any = await fetch(`http://localhost:9000/api/accesstoken?email=${email}`)
         response = await response.json()
-        if(!response.access_token){
-         return res.status(200).json({message:"no accesstoke found with these email",email})
+        if (!response.access_token) {
+            return res.status(200).json({ message: "no accesstoke found with these email", email })
         }
-        const {status,data}:any= await userService.getUserProfile(response.access_token)
+        const { status, data }: any = await userService.getUserProfile(response.access_token)
 
-        return res.status(status).json({data})
+        return res.status(status).json({ data })
 
-    }catch(err){
+    } catch (err) {
         return res.status(500).json({
-            message:"Internal or External error",
-            error:err
+            message: "Internal or External error",
+            error: err
+        })
+    }
+}
+
+export const getUserFunds = async (req: Request, res: Response) => {
+    try {
+        const email = req.query.email
+        let response: any = await fetch(`http://localhost:9000/api/accesstoken?email=${email}`)
+        response = await response.json()
+        if (!response.access_token) {
+            return res.status(200).json({ message: "no accesstoke found with these email", email })
+        }
+        const { status, data } = await userService.getFundsData(response.access_token)
+        return res.status(status).json({ data: data })
+    } catch (err) {
+        return res.status(500).json({
+            message: "internal or external server error",
+            error: err
         })
     }
 
