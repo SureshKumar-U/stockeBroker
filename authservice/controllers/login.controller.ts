@@ -62,7 +62,7 @@ export const getAccessToken = async (req: Request, res: Response) => {
     try {
         const email = req.query.email
         if (!email) return res.status(400).json({ message: "email not found in params" })
-        const token = await accessTokenModel.findOne({ email: email })
+        const token = await accessTokenModel.findOne({ email: email }).sort({ _id: -1 });
         if (!token) {
             return res.status(200).json({ message: "accessToken not found with these email", email })
         }

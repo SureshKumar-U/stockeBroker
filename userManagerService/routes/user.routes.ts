@@ -1,8 +1,9 @@
 import {Router} from "express"
-import { getUserProfile } from "../controller/user.controller"
+import { getUserFunds, getUserProfile } from "../controller/user.controller"
 
 const router = Router()
 
 router.get("/userprofile",getUserProfile)
+router.get("/userfunds",getUserFunds)
 
 export default router
