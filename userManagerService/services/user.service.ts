@@ -29,7 +29,7 @@ const userService = {
                 'Content-Type': 'application/json'
             }
         })
-        response = response.json()
+        response = await response.json()
         if(response?.errors){
             return {status:400, error:response.errors}
         }
