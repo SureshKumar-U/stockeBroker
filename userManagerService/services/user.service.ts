@@ -5,7 +5,7 @@ const userService = {
             return "env not loaded"
         }
 
-        let response :any= await fetch(upstoxProfileUrl, {
+        let response: any = await fetch(upstoxProfileUrl, {
             headers: {
                 "Authorization": `Bearer ${accessToken}`,
                 "Accept": "application/json",
@@ -13,11 +13,28 @@ const userService = {
             }
         })
         response = await response.json()
-        if(response?.errors){
-            return {status:401,data:response?.errors}
+        if (response?.errors) {
+            return { status: 401, data: response?.errors }
 
         }
-        return {status:200, data:response.data}
+        return { status: 200, data: response.data }
+    },
+    getFundsData: async (accessToken: string) => {
+        let getFundsURL = "https://api.upstox.com/v2/user/get-funds-and-margin"
+
+        let response:any = await fetch(getFundsURL, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        response = response.json()
+        if(response?.errors){
+            return {status:400, error:response.errors}
+        }
+        return {status:200,data:response.data}
+
     }
 }
 
