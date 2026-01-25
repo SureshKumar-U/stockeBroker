@@ -15,7 +15,8 @@
     "express": "^5.2.1",
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "upstox-js-sdk": "^2.21.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
