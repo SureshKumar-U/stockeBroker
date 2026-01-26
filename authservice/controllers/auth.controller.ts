@@ -47,7 +47,7 @@ export const callbackController = async (req: Request, res: Response) => {
         //save accesstoken in db
         await accessTokenModel.create({ accesstoken: access_token, email: email })
         const token = jwt.sign(email, process.env.JWT_SECRET)
-        return res.redirect(`http://localhost:3000/${token}`)
+        return res.redirect(`http://localhost:3000/dashboard?token=${token}`)
 
 
 

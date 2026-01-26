@@ -1,5 +1,5 @@
 import {Router} from "express"
-import { redirectToupstoxLogin,callbackController, getAccessToken } from "../controllers/login.controller"
+import { redirectToupstoxLogin,callbackController, getAccessToken } from "../controllers/auth.controller"
 
 
 const router = Router()
