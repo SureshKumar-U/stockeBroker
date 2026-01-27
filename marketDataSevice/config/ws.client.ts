@@ -22,8 +22,8 @@ export const decodeProtoBuf = (buffer) => {
 
 }
 export const getmarketFeedUrl = async () => {
-    const url = "https://api.upstox.com/v3/feed/market-data-feed/authorize";
-    const accessToken = "
+    const url = process.env.GET_MARKETDATA_URL
+    const accessToken = process.env.ACCESS_TOKEN
     let response: any = await fetch(url, {
         headers: {
             'Accept': 'application/json',
