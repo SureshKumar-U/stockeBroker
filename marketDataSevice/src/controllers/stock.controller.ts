@@ -4,7 +4,9 @@ import path from "path"
 import { parser } from "stream-json"
 import { streamArray } from "stream-json/streamers/StreamArray"
 import { Client } from "@opensearch-project/opensearch"
+import stockService from "../services/stock.services"
 const csvFilepath = path.join(__dirname, "../../complete.json")
+
 
 const stockController = {
     loadStockData: async (req: Request, res: Response) => {
@@ -35,6 +37,12 @@ const stockController = {
             })
             .on("end", () => console.log("file processing completed"))
             .on("error", (error) => console.log(error))
+    },
+    getMarketData: async (req: Request, res: Response) => {
+        const data = await stockService.getMarketData(req)
+        return res.status(200).json({
+            data
+        })
     }
 
 }
