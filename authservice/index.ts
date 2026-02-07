@@ -1,9 +1,9 @@
-import express from "express"
+import express,{ type Express} from "express"
 import router from "./routes/index"
 import { connectToDb } from "./config/dbconnnect"
 import dotenv from "dotenv"
 dotenv.config()
-const app = express()
+const app: Express = express()
 
 app.use("/api", router)
 
